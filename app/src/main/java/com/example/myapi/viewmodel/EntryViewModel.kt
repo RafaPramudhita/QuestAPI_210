@@ -17,7 +17,14 @@ class EntryViewModel(
     var uiStateSiswa by mutableStateOf(UIStateSiswa())
         private set
 
-
+    /* Validasi input */
+    private fun validasiInput(
+        uiState: DetailSiswa = uiStateSiswa.detailSiswa
+    ): Boolean {
+        return uiState.nama.isNotBlank() &&
+                uiState.alamat.isNotBlank() &&
+                uiState.telpon.isNotBlank()
+    }
 
 
 
