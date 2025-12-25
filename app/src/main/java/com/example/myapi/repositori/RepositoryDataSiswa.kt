@@ -15,4 +15,13 @@ interface RepositoriDataSiswa {
 
 class JaringanRepositoryDataSiswa(
     private val serviceApiSiswa: ServiceApiSiswa
-)
+) : RepositoriDataSiswa {
+
+    override suspend fun getDataSiswa(): List<DataSiswa> =
+        serviceApiSiswa.getSiswa()
+
+    override suspend fun postDataSiswa(
+        dataSiswa: DataSiswa
+    ): Response<Unit> =
+        serviceApiSiswa.postSiswa(dataSiswa)
+}
