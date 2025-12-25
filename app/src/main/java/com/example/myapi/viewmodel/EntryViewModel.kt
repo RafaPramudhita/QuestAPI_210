@@ -34,5 +34,19 @@ class EntryViewModel(
         )
     }
 
+    /* Simpan data ke API */
+    suspend fun addSiswa() {
+        if (validasiInput()) {
+            val response: Response<Unit> =
+                repositoryDataSiswa.postDataSiswa(
+                    uiStateSiswa.detailSiswa.toDataSiswa()
+                )
 
+            if (response.isSuccessful) {
+                println("Sukses Tambah Data")
+            } else {
+                println("Gagal tambah data: ${response.errorBody()}")
+            }
+        }
+    }
 }
