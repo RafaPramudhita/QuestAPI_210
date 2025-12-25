@@ -13,3 +13,6 @@ interface RepositoriDataSiswa {
     ): Response<Unit>
 }
 
+class JaringanRepositoryDataSiswa(
+    private val serviceApiSiswa: ServiceApiSiswa
+)
