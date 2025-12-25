@@ -11,5 +11,8 @@ interface ServiceApiSiswa {
     @GET("bacateman.php")
     suspend fun getSiswa(): List<DataSiswa>
 
-
+    @POST("insertTM.php")
+    suspend fun postSiswa(
+        @Body dataSiswa: DataSiswa
+    ): Response<Unit>
 }
