@@ -14,5 +14,9 @@
         val repositoryDataSiswa: RepositoriDataSiswa
     }
 
+    class DefaultContainerApp : ContainerApp {
+
+
+    }
 
 
