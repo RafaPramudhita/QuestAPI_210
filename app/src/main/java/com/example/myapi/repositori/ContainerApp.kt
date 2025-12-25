@@ -16,6 +16,16 @@
 
     class DefaultContainerApp : ContainerApp {
 
+        private val baseurl = "http://10.0.2.2/phpmobile/"
+
+        private val logging = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
+
+        private val klien = OkHttpClient.Builder()
+            .addInterceptor(logging)
+            .build()
+
 
     }
 
