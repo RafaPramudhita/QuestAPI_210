@@ -38,7 +38,13 @@
             .client(klien)
             .build()
 
+        private val retrofitService: ServiceApiSiswa by lazy {
+            retrofit.create(ServiceApiSiswa::class.java)
+        }
 
+        override val repositoryDataSiswa: RepositoriDataSiswa by lazy {
+            JaringanRepositoryDataSiswa(retrofitService)
+        }
     }
 
 
