@@ -6,6 +6,10 @@ import retrofit2.Response
 
 interface RepositoriDataSiswa {
 
+    suspend fun getDataSiswa(): List<DataSiswa>
 
+    suspend fun postDataSiswa(
+        dataSiswa: DataSiswa
+    ): Response<Unit>
 }
 
