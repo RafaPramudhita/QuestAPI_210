@@ -26,7 +26,13 @@ class EntryViewModel(
                 uiState.telpon.isNotBlank()
     }
 
-
+    /* Update state saat input berubah */
+    fun updateUiState(detailSiswa: DetailSiswa) {
+        uiStateSiswa = UIStateSiswa(
+            detailSiswa = detailSiswa,
+            isEntryValid = validasiInput(detailSiswa)
+        )
+    }
 
 
 }
