@@ -106,13 +106,8 @@ fun ErrorScreen(retryAction: () -> Unit, modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = stringResource(R.string.gagal),
-            modifier = Modifier.padding(16.dp)
-        )
-        Button(onClick = retryAction) {
-            Text(stringResource(R.string.retry))
-        }
+        Text(text = stringResource(R.string.gagal), modifier = Modifier.padding(16.dp))
+        Button(onClick = retryAction) { Text(stringResource(R.string.retry)) }
     }
 }
 
@@ -145,29 +140,15 @@ fun ItemSiswa(
     ) {
         Column(
             modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_large)),
-            verticalArrangement = Arrangement.spacedBy(
-                dimensionResource(id = R.dimen.padding_small)
-            )
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small))
         ) {
             Row(modifier = Modifier.fillMaxWidth()) {
-                Text(
-                    text = siswa.nama,
-                    style = MaterialTheme.typography.titleLarge
-                )
+                Text(text = siswa.nama, style = MaterialTheme.typography.titleLarge)
                 Spacer(Modifier.weight(1f))
-                Icon(
-                    imageVector = Icons.Default.Phone,
-                    contentDescription = null
-                )
-                Text(
-                    text = siswa.telpon,
-                    style = MaterialTheme.typography.titleMedium
-                )
+                Icon(imageVector = Icons.Default.Phone, contentDescription = null)
+                Text(text = siswa.telpon, style = MaterialTheme.typography.titleMedium)
             }
-            Text(
-                text = siswa.alamat,
-                style = MaterialTheme.typography.titleMedium
-            )
+            Text(text = siswa.alamat, style = MaterialTheme.typography.titleMedium)
         }
     }
 }
