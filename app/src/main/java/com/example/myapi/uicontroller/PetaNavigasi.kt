@@ -8,17 +8,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.myapi.uicontroller.route.DestinasiEntry
-import com.example.myapi.uicontroller.route.DestinasiHome
-import com.example.myapi.view.EntrySiswaScreen
-import com.example.myapi.view.HomeScreen
+import com.example.myapi.uicontroller.route.*
+import com.example.myapi.view.*
 
 @Composable
 fun DataSiswaApp(
     navController: NavHostController = rememberNavController(),
     modifier: Modifier
 ) {
-    HostNavigasi(navController = navController)
+    HostNavigasi(navController = navController, modifier = modifier)
 }
 
 @Composable
@@ -34,20 +32,39 @@ fun HostNavigasi(
 
         composable(DestinasiHome.route) {
             HomeScreen(
-                navigateToItemEntry = {
-                    navController.navigate(DestinasiEntry.route)
-                },
-                navigateToItemUpdate = {
-                    // nanti kalau ada detail/edit
+                navigateToItemEntry = { navController.navigate(DestinasiEntry.route) },
+                navigateToItemUpdate = { id ->
+                    navController.navigate("${DestinasiDetail.route}/$id")
                 }
             )
         }
 
         composable(DestinasiEntry.route) {
             EntrySiswaScreen(
-                navigateBack = {
-                    navController.popBackStack()
+                navigateBack = { navController.popBackStack() }
+            )
+        }
+
+        // ==== BARU: DETAIL ====
+        composable(
+            route = DestinasiDetail.routeWithArgs,
+            arguments = listOf(navArgument(DestinasiDetail.itemIdArg) { type = NavType.IntType })
+        ) {
+            DetailSiswaScreen(
+                navigateBack = { navController.popBackStack() },
+                navigateToUpdate = { id ->
+                    navController.navigate("${DestinasiUpdate.route}/$id")
                 }
+            )
+        }
+
+        // ==== BARU: UPDATE ====
+        composable(
+            route = DestinasiUpdate.routeWithArgs,
+            arguments = listOf(navArgument(DestinasiUpdate.itemIdArg) { type = NavType.IntType })
+        ) {
+            UpdateSiswaScreen(
+                navigateBack = { navController.popBackStack() }
             )
         }
     }
