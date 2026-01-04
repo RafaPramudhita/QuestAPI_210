@@ -17,16 +17,12 @@ class EntryViewModel(
     var uiStateSiswa by mutableStateOf(UIStateSiswa())
         private set
 
-    /* Validasi input */
-    private fun validasiInput(
-        uiState: DetailSiswa = uiStateSiswa.detailSiswa
-    ): Boolean {
+    private fun validasiInput(uiState: DetailSiswa = uiStateSiswa.detailSiswa): Boolean {
         return uiState.nama.isNotBlank() &&
                 uiState.alamat.isNotBlank() &&
                 uiState.telpon.isNotBlank()
     }
 
-    /* Update state saat input berubah */
     fun updateUiState(detailSiswa: DetailSiswa) {
         uiStateSiswa = UIStateSiswa(
             detailSiswa = detailSiswa,
@@ -34,13 +30,10 @@ class EntryViewModel(
         )
     }
 
-    /* Simpan data ke API */
     suspend fun addSiswa() {
         if (validasiInput()) {
             val response: Response<Unit> =
-                repositoryDataSiswa.postDataSiswa(
-                    uiStateSiswa.detailSiswa.toDataSiswa()
-                )
+                repositoryDataSiswa.postDataSiswa(uiStateSiswa.detailSiswa.toDataSiswa())
 
             if (response.isSuccessful) {
                 println("Sukses Tambah Data")
