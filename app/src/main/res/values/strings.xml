@@ -1,18 +1,32 @@
 <resources>
+    <!-- App -->
     <string name="app_name">My API</string>
 
     <!-- Home -->
     <string name="entry_siswa">Tambah Siswa</string>
-    <string name="loading">Loading</string>
-    <string name="gagal">Gagal memuat data</string>
-    <string name="retry">Coba Lagi</string>
 
-    <!-- Form -->
+    <!-- Entry -->
     <string name="nama">Nama</string>
     <string name="alamat">Alamat</string>
     <string name="telpon">Telepon</string>
     <string name="btn_submit">Simpan</string>
     <string name="required_field">* Semua field wajib diisi</string>
+
+    <!-- Status -->
+    <string name="loading">Loading...</string>
+    <string name="retry">Coba Lagi</string>
+    <string name="gagal">Gagal memuat data</string>
+
+    <!-- Detail -->
+    <string name="detail_siswa">Detail Siswa</string>
+    <string name="update_siswa">Update Siswa</string>
+    <string name="delete">Hapus</string>
+
+    <!-- Delete Dialog -->
+    <string name="attention">Perhatian</string>
+    <string name="tanya">Yakin ingin menghapus data ini?</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
 
     <!-- Navigation -->
     <string name="back">Kembali</string>
